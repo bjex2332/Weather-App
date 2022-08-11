@@ -7,12 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="./assets/css/style.css" />
-    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+    integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <title>5 Day Forecast</title>
 
 </head>
 
 <body>
-    <header id="jumbotron" class="jumbotron text-white text-center" style='background-color: blue'>
+    <header id="jumbotron" class="jumbotron text-white text-center" style='background-image: linear-gradient(to right, rgb(15, 2, 253) 25%, rgb(0, 213, 255) 50%, rgb(15, 2, 253) 100%)'>
         <h1 class="display-3.5">Weather Dashboard</h1>
     </header>
     <section class="container-fluid">
@@ -21,25 +23,23 @@
                 <h2 class="display-6">Search for a City:</h2>
                 <div class="form-group">
                     <label for=""></label>
-                    <input type="text" class="form-control form-control-sm darkBorder" name="" id=""
-                        aria-describedby="helpId" placeholder="">
-                    <button type="submit" class="my-3 btn btn-primary col-12">Search</button>
+                    <input id = 'city' type="text" class="form-control form-control-sm darkBorder" name="" 
+                        aria-describedby="helpId" placeholder="Search for a City">
+                    <button id = "citySubmit" class="my-3 btn btn-primary col-12" style ='background-image: linear-gradient(to right, rgb(15, 2, 253) 25%, rgb(0, 213, 255) 50%, rgb(15, 2, 253) 100%)'>Search</button>
                     <div class="divider py-1 bg-dark mt-1.5 mb-1.5"></div>
                     <div class="list-group mt-2 mb-2">
-                        <button type="select" class="my-2 btn btn-primary col-12"
-                            style='background-color: gray; border-color: gray;'>City Name</button>
-                        <button type="select" class="my-2 btn btn-primary col-12"
-                            style='background-color: gray; border-color: gray;'>City Name</button>
-                        <button type="select" class="my-2 btn btn-primary col-12"
-                            style='background-color: gray; border-color: gray;'>City Name</button>
-                        <button type="select" class="my-2 btn btn-primary col-12"
-                            style='background-color: gray; border-color: gray;'>City Name</button>
-                        <button type="select" class="my-2 btn btn-primary col-12"
-                            style='background-color: gray; border-color: gray;'>City Name</button>
-                        <button type="select" class="my-2 btn btn-primary col-12"
-                            style='background-color: gray; border-color: gray;'>City Name</button>
-                        <button type="select" class="my-2 btn btn-primary col-12"
-                            style='background-color: gray; border-color: gray;'>City Name</button>
+                        <button id = 'city1' type="select" class="my-2 btn btn-primary col-12"
+                            style='background-image:radial-gradient(black, gray); border-color: gray;'>City Name</button>
+                        <button id = 'city2' type="select" class="my-2 btn btn-primary col-12"
+                            style='background-image:radial-gradient(black, gray); border-color: gray;'>City Name</button>
+                        <button id = 'city3' type="select" class="my-2 btn btn-primary col-12"
+                            style='background-image:radial-gradient(black, gray); border-color: gray;'>City Name</button>
+                        <button id = 'city4' type="select" class="my-2 btn btn-primary col-12"
+                            style='background-image:radial-gradient(black, gray); border-color: gray;'>City Name</button>
+                        <button id = 'city5' type="select" class="my-2 btn btn-primary col-12"
+                            style='background-image:radial-gradient(black, gray); border-color: gray;'>City Name</button>
+
+
 
                     </div>
                 </div>
@@ -48,12 +48,12 @@
             <div class="col-12 col-md-8 col-xl-9">
                 <div class="darkBorder card border">
                     <div class="card-body">
-                        <h4 class="card-title">City Placeholder</h4>
-                        <ul class="list">
-                            <li class="list-item">Temp:</li>
-                            <li class="list-item">Wind:</li>
-                            <li class="list-item">Humidity:</li>
-                            <li class="list-item">UV Index</li>
+                        <h4 id = 'currentCity' class="card-title"><span id ='cityName'></span><div id = 'citySym'></div><span id = 'today'></span></span></h4>
+                        <ul id = 'currentCitySpecs' class="list">
+                            <li class="list-item">Temp: <span id ='cityTemp'></span>° F </li>
+                            <li class="list-item">Wind: <span id ='cityWind'></span> MPH</li>
+                            <li class="list-item">Humidity: <span id ='cityHum'></span>%</li>
+                            
                         </ul>
                     </div>
                 </div>
@@ -62,45 +62,28 @@
                 <section class="container-fluid">
                     <div class="row row-cols-5">
 
-                        <div class='card border' style="background-color:rgb(142, 242, 242)">
-                            <h3 class="col">Date Placeholder</h3>
-                            <h4 class="col">☀️</img>
-                                <h4 class="col">Temp:</h4>
-                                <h4 class='col'>Wind:</h4>
-                                <h4 class='col'>Humidity:</h4>
+                        <div class='card border' style='background-image: linear-gradient(to right, rgb(15, 2, 253) 25%, rgb(0, 213, 255) 50%, rgb(15, 2, 253) 100%)'>
+                            <h3 style = 'color: aliceblue' id = 'day1' class="col">Date Placeholder</h3>
+                            <h4 style = 'color: aliceblue'id = 'day0-container'></h4>
+                        </div>
+                        <div class='card border' style='background-image: linear-gradient(to right, rgb(15, 2, 253) 25%, rgb(0, 213, 255) 50%, rgb(15, 2, 253) 100%)'>
+                            <h3 style = 'color: aliceblue'id = 'day2' class="col">Date Placeholder</h3>
+                            <h4 style = 'color: aliceblue'id = 'day1-container'></h4>
+                        </div>
+                        <div class='card border' style='background-image: linear-gradient(to right, rgb(15, 2, 253) 25%, rgb(0, 213, 255) 50%, rgb(15, 2, 253) 100%)'>
+                            <h3 style = 'color: aliceblue'id = 'day3' class="col">Date Placeholder</h3>
+                            <h4 style = 'color: aliceblue'id = 'day2-container'></h4>
+                        </div>
+                        <div class='card border' style='background-image: linear-gradient(to right, rgb(15, 2, 253) 25%, rgb(0, 213, 255) 50%, rgb(15, 2, 253) 100%)'>
+                            <h3 style = 'color: aliceblue'id = 'day4' class="col">Date Placeholder</h3>
+                            <h4 style = 'color: aliceblue'id = 'day3-container'></h4>
+                        </div>
+                        <div class='card border' style='background-image: linear-gradient(to right, rgb(15, 2, 253) 25%, rgb(0, 213, 255) 50%, rgb(15, 2, 253) 100%)'>
+                            <h3 style = 'color: aliceblue'id = 'day5' class="col">Date Placeholder</h3>
+                            <h4 style = 'color: aliceblue'id = 'day4-container'></h4>
                         </div>
 
-                        <div class='card border' style="background-color:rgb(142, 242, 242)">
-                            <h3 class="col">Date Placeholder</h3>
-                            <h4 class="col">☀️</img>
-                                <h4 class="col">Temp:</h4>
-                                <h4 class='col'>Wind:</h4>
-                                <h4 class='col'>Humidity:</h4>
-                        </div>
-
-                        <div class='card border' style="background-color:rgb(142, 242, 242)">
-                            <h3 class="col">Date Placeholder</h3>
-                            <h4 class="col">☀️</img>
-                                <h4 class="col">Temp:</h4>
-                                <h4 class='col'>Wind:</h4>
-                                <h4 class='col'>Humidity:</h4>
-                        </div>
-
-                        <div class='card border' style="background-color:rgb(142, 242, 242)">
-                            <h3 class="col">Date Placeholder</h3>
-                            <h4 class="col">☀️</img>
-                                <h4 class="col">Temp:</h4>
-                                <h4 class='col'>Wind:</h4>
-                                <h4 class='col'>Humidity:</h4>
-                        </div>
-
-                        <div class='card border' style="background-color:rgb(142, 242, 242)">
-                            <h3 class="col">Date Placeholder</h3>
-                            <h4 class="col">☀️</img>
-                                <h4 class="col">Temp:</h4>
-                                <h4 class='col'>Wind:</h4>
-                                <h4 class='col'>Humidity:</h4>
-                        </div>
+                        
 
 
                     </div>
