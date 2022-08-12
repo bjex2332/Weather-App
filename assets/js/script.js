@@ -104,7 +104,7 @@ $('#city5').click(function (event) {
 
 
 function getAPI(searchParam) {
-    var requestURL = "http://api.openweathermap.org/data/2.5/forecast?q=" + searchParam + "&appid=" + APIKey;
+    var requestURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + searchParam + "&appid=" + APIKey;
     fetch(requestURL)
     .then(function (response) {
         return response.json();
